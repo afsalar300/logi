@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'bindex.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="text-align: center;">
+    <h1>Details</h1>
+    <form method="post" action="{% url 'updatestatus' dataid=details.id %}">
+        {% csrf_token %}
+        <label>Update Status</label><br>
+        <select name="s_status">
+            <option value="Pending">Pending</option>
+            <option value="Reject">Reject</option>
+            <option value="Pick-up Success-full">Pick-up Success-full</option>
+            <option value="Under Transit">Under Transit</option>
+            <option value="Drop-down Success-full">Drop-down Success-full</option>
+        </select><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+</div>
+
+</body>
+</html>
+{% endblock %}

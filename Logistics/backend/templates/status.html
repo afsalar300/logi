@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% extends 'bindex.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="flex flex-1  flex-col md:flex-row lg:flex-row mx-2">
+    <div class="mb-2 border-solid border-gray-300 rounded border shadow-sm w-full">
+        <div class="bg-gray-200 px-2 py-3 border-solid border-gray-200 border-b">
+            <h1>Category Details....</h1>
+        </div>
+        <table style="width:100%;text-align: center">
+            <tr>
+                <th>Name</th>
+                <th>Mobile No</th>
+                <th>Address</th>
+                <th>Expected Date</th>
+                <th>status</th>
+            </tr>
+
+            {% for i in data %}
+            <tr>
+                <td>{{i.re_f_name}}</td>
+                <td>{{i.re_mobile}}</td>
+                <td>{{i.re_address}}</td>
+                <td>{{i.re_date}}</td>
+                <td>{{i.re_status}}</td>
+                <td>
+                    <form action="{% url 'statusEdit' dataid=i.id %}">
+                        <button>Update Status</button>
+                    </form>
+                </td>
+                <!--            <td>-->
+                <!--                <form action="">-->
+                <!--                    <button>delete</button>-->
+                <!--                </form>-->
+                <!--            </td>-->
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>
+{% endblock %}
